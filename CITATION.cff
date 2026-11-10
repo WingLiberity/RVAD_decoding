@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the dataset and this repository."
+title: "Single-trial decoding of target versus non-target RSVP trials (RVAD dataset)"
+abstract: "Reference implementation of per-participant single-trial EEG decoding with SVM, EEGNet, DeepConvNet and FBCNet on the RVAD dataset."
+authors:
+  - name: "RVAD dataset authors"
+version: 1.0.0
+date-released: "2026-11-10"
+license: MIT
+references:
+  - type: dataset
+    title: "RVAD: an RSVP-based visual attention dataset with expert, junior and novice performers"
+    authors:
+      - name: "RVAD dataset authors"
+    year: 2026
+    doi: "<DATASET DOI>"
