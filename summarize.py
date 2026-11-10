@@ -36,7 +36,10 @@ def main():
     long = df[['model', 'group', 'subject', 'n_train', 'n_val', 'n_test',
                'acc', 'bal_acc', 'f1', 'auc']]
     long.to_csv(res / 'per_participant_decoding_long.csv', index=False, encoding='utf-8')
-    long.to_csv(res / 'decode_metrics.csv', index=False, encoding='utf-8')
+
+    metrics = _agg(long, ['group', 'model'], ['acc', 'bal_acc', 'f1', 'auc']).reset_index()
+    metrics.insert(2, 'n_subjects', long.groupby(['group', 'model']).size().values)
+    metrics.to_csv(res / 'decode_metrics.csv', index=False, encoding='utf-8')
 
     wide = long.pivot_table(index=['group', 'subject'], columns='model',
                             values=['acc', 'bal_acc', 'auc'])
